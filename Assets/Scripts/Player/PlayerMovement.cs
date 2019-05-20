@@ -21,27 +21,28 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        m_movement = new Vector3(0f, 0f, 0f);
+
         // Vertical Movement
         if(Input.GetKey(KeyCode.Space))
         { 
-            m_movement = Vector3.up;
+            m_movement += Vector3.up;
 
         }
-        else if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            m_movement = Vector3.down;
+            m_movement += Vector3.down;
         }
         // Horizontal Movement
-        else
-        {
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
+        
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-            m_movement.Set(horizontal, 0f, vertical);
-            m_movement.Normalize();
-        }
+        m_movement += new Vector3(horizontal, 0f, vertical);
+        m_movement.Normalize();
 
-        // Camera cotrolls
+        // Camera controls
         float h = horizontalSpeed * Input.GetAxis("Mouse X");
         float v = verticalSpeed * Input.GetAxis("Mouse Y");
 
@@ -51,13 +52,6 @@ public class PlayerMovement : MonoBehaviour
         Quaternion q = transform.rotation;
         q.eulerAngles = new Vector3(q.eulerAngles.x, q.eulerAngles.y, 0);
         transform.rotation = q;
-
-
-
-
-
-
-
 
         transform.Translate(m_movement * speedAmp * Time.deltaTime);
     }

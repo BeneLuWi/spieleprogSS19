@@ -6,7 +6,7 @@ using UnityEngine;
 public class PreviewBlock : MonoBehaviour
 {
 
-    public GameObject player;
+    public Camera camera;
 
 
     // Start is called before the first frame update
@@ -18,18 +18,6 @@ public class PreviewBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Vector3 playerpos = player.transform.position;
-        Vector3 posInGrid = playerpos + (player.transform.forward * 4);
-
-        posInGrid.x = (float)System.Math.Floor(posInGrid.x);
-        posInGrid.y = (float)System.Math.Floor(posInGrid.y);
-        posInGrid.z = (float)System.Math.Floor(posInGrid.z);
-
-       
-        transform.rotation = Quaternion.identity;
-        transform.position = posInGrid;
-
         Collider[] colliders;
         colliders = Physics.OverlapSphere(transform.position, 1f /* Radius */);
         if (colliders.Length > 1) //Presuming the object you are testing also has a collider 0 otherwise
