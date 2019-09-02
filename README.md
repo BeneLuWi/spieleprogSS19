@@ -1,5 +1,5 @@
 # Spieleprogrammierung Sommersemester 2019
-Das Abschlussprojekt für Spieleprogrammierung ist ein Unity-Projekt bei dem die Aufgabe war, eine Server-Client-Architektur zur erstellen, bei der der Server das Rendering des Spiels übernimmt und der Client diese streamt.
+Das Abschlussprojekt für Spieleprogrammierung ist ein Unity-Projekt bei dem die Aufgabe war, eine Server-Client-Architektur zur erstellen, bei der der Server das Rendering des Spiels übernimmt und der Client dieses streamt. In Zusammenarbeit mit [Aaron Winziers](https://github.com/AaronWinziers)
 
 
 ## Quick Start
